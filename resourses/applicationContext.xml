@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--Указываем путь к файлу, из которого нужно читать аргументы для не hardcode варианта DI через сеттеры-->
+    <context:property-placeholder location="classpath:myApp.properties"/>
+
+    <!--Обычный бин питомца-->
+    <bean id="myPet"
+          class="spring_introduction.xml_file.Cat"><!--За кулисами (Cat myPet = new Cat();)-->
+    </bean>
+
+    <!--Бин персоны-->
+    <bean id="myPerson"
+          class="spring_introduction.xml_file.Person">
+
+        <!--DI через конструктор. Тег аргумента конструктора и ссылка на нужный аргумент.-->
+        <!--<constructor-arg ref="myPet"/>-->
+
+        <!--DI через сеттер. setPet->pet и ссылка на нужный параметр метода.-->
+        <property name="pet" ref="myPet"/>
+
+        <!--DI через сеттер. Поля задаются напрямую через XML файл (value)(hardCoded)-->
+        <!--        <property name="firstName" value="Vadim"/>-->
+        <!--        <property name="age" value="26"/>-->
+
+        <!--DI через сеттер. Поля задаются через properties файл (value)-->
+        <property name="firstName" value="${person.firstName}"/>
+        <property name="age" value="${person.age}"/>
+
+
+    </bean>
+</beans>

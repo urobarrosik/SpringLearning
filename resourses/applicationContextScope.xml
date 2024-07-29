@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--Обычный бин питомца-->
+    <bean id="myPet"
+          class="spring_introduction.xml_file.Cat"
+          scope="prototype"><!--Скоуп singleton(создайтся 1 общий объект и сразу) или prototype(создаются разные объекты по запросу).-->
+
+    </bean>
+
+</beans>

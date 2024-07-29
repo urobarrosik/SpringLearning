@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--Бин питомца с init и destroy методами-->
+    <!--    Может быть любой уровень доступа. Может быть любой тип возвращаемого значения, но получить это значение мы не-->
+    <!--    можем, так что чаще всего используется тип void. У этих методов не должно быть параметров.-->
+    <bean id="myPet"
+          class="spring_introduction.xml_file.Dog"
+          init-method="init"
+          destroy-method="destroy"
+          scope="prototype"><!--init выполняется после каждого создания бина, а destroy не выполняется вовсе-->
+        <!--        scope="prototype">init выполняется после создания, а destroy после закрытия контейнера-->
+    </bean>
+
+</beans>
